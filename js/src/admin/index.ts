@@ -1,4 +1,6 @@
 import app from 'flarum/admin/app';
+import {extend} from "flarum/common/extend";
+import AdvancedPage from 'flarum/admin/components/AdvancedPage';
 
 app.initializers.add('blomstra-search', () => {
   const languages = new Map();
@@ -89,4 +91,8 @@ app.initializers.add('blomstra-search', () => {
       label: app.translator.trans('blomstra-search.admin.search-post-bodies'),
       type: 'switch',
     });
+
+  extend(AdvancedPage.prototype, 'driverLocale', function (locale) {
+    locale.search['blomstra-elasticsearch'] = app.translator.trans('blomstra-search.admin.advanced.search.driver_options.blomstra-elasticsearch');
+  });
 });

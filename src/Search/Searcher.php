@@ -97,7 +97,7 @@ abstract class Searcher implements SearcherInterface
 
         $records = $callback($response, $criteria);
 
-        return new SearchResults($records, $areMoreResults);
+        return new SearchResults($records, $areMoreResults, fn () => $response['hits']['total']['value']);
     }
 
     protected function applySort(ElasticSearchState $state, SearchCriteria $criteria): void

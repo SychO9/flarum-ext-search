@@ -1,5 +1,11 @@
 blomstra-search:
     admin:
+
+        advanced:
+            search:
+                driver_options:
+                    blomstra-elasticsearch: Elasticsearch
+
         elastic-endpoint: Elastic Endpoint
         elastic-username: => core.ref.username
         elastic-password: => core.ref.password
